@@ -34,7 +34,7 @@ int main() {
 	ALLEGRO_SAMPLE *sample = NULL;
 	ALLEGRO_SAMPLE_INSTANCE *instance1 = NULL;
 
-	double CLOCK = .08;
+	double CLOCK = .07;
 
 	int SNAKESIZE = 40;
 
@@ -68,7 +68,7 @@ int main() {
 	al_clear_to_color(al_map_rgb(255, 255, 255));
 
 	timer = al_create_timer(CLOCK);
-	display = al_create_display(800, 800);
+	display = al_create_display(800, 1000);
 
 	int grid[20][20];
 
@@ -105,9 +105,9 @@ int main() {
 	//al_play_sample_instance(instance1);
 
 	while (true) {
-		int color1 = rand() % 255;
-		int color2 = rand() % 255;
-		int color3 = rand() % 255;
+		int color1 = rand() % 158;
+		int color2 = rand() % 21;
+		int color3 = rand() % 90;
 		int color4 = rand() % 255;
 		int color5 = rand() % 255;
 		int color6 = rand() % 255;
@@ -278,7 +278,7 @@ int main() {
 						al_draw_filled_rectangle(i*SNAKESIZE, j*SNAKESIZE, i*SNAKESIZE + SNAKESIZE, j*SNAKESIZE + SNAKESIZE, al_map_rgb(color3, color1, color2));
 					}
 					if (grid[i][j] == 0) {
-						al_draw_filled_rectangle(i*SNAKESIZE, j*SNAKESIZE, i*SNAKESIZE + SNAKESIZE, j*SNAKESIZE + SNAKESIZE, al_map_rgb(175, 175, 175));
+						al_draw_filled_rectangle(i*SNAKESIZE, j*SNAKESIZE, i*SNAKESIZE + SNAKESIZE, j*SNAKESIZE + SNAKESIZE, al_map_rgb(150, 10, 103));
 					}
 					
 				}
