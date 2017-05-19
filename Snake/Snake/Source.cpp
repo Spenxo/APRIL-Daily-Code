@@ -33,8 +33,10 @@ int main() {
 	ALLEGRO_BITMAP *snake = NULL;
 	ALLEGRO_SAMPLE *sample = NULL;
 	ALLEGRO_SAMPLE_INSTANCE *instance1 = NULL;
+	ALLEGRO_FONT*font = al_create_builtin_font();
 
 	double CLOCK = .07;
+	int score = 0;
 
 	int SNAKESIZE = 40;
 
@@ -85,10 +87,6 @@ int main() {
 	event_queue = al_create_event_queue();
 
 	al_reserve_samples(10);
-
-	ALLEGRO_FONT *font = al_load_ttf_font("hearts.ttf", 28, 0);
-	if (font == NULL)
-		cout << "font is null" << endl;
 
 	al_register_event_source(event_queue, al_get_display_event_source(display));
 
@@ -143,6 +141,7 @@ int main() {
 				goal_x = rand() % 20;
 				goal_y = rand() % 20;
 				grid[goal_x][goal_y] = 2;
+				score++;
 				gotGoal = false;
 			}
 
@@ -282,11 +281,12 @@ int main() {
 					}
 					
 				}
+
 			if (gotGoal == true)
 				grid[goal_x][goal_y] = 0;
 
 			//al_draw_bitmap(snake, 400, 200, 0);
-
+			al_draw_textf(font, al_map_rgb(255, 255, 255), 50, 800, 0, "Score:%d", score);
 			al_flip_display();
 
 
